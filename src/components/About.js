@@ -23,20 +23,22 @@ class About extends Component{
 
     render(){
         return(
-            <div className="card border border-info">
-                <div className="card-body">
-                    <div className="float-right">
+            <div className="column is-half">
+                <div className="message is-black">
+                    <div className="message-header">
                         <p>
-                            <button type="button" className="btn btn-light" onClick={this.props.aboutHandler}>
+                            <button type="button" className="delete" onClick={this.props.aboutHandler}>
                                 <i className="fa fa-close"></i>
                             </button>
                         </p>
                     </div>
-                    <ul>
-                        {this.state.names.map(name =>
-                            <li key={name}>{name}</li>    
-                        )}                        
-                    </ul>
+                    <div className="message-body">
+                        <ul>
+                            {this.state.names.map(name =>
+                                <li key={name}>{name}</li>    
+                            )}                        
+                        </ul>
+                    </div>
                 </div>
 
             </div>

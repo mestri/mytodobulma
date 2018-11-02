@@ -23,28 +23,29 @@ class Profile extends Component{
 
     render(){
         return(
-            <div className="card border border-warning">
-                <div className="card-body">
-                    <div className="float-right">
+
+            <div className="column is-half">
+                <article className="message is-black">
+                    <div className="message-header">
                         <p>
-                            <button type="button" className="btn btn-light" onClick={this.props.profileHandler}>
+                            <button type="button" className="delete" onClick={this.props.profileHandler}>
                                 <i className="fa fa-close"></i>
                             </button>
                         </p>
                     </div>
-                    <br></br>
-                    <br></br>
-                    <div>
+                    <div className="message-body">
                         {this.state.profile.login}
-                    </div>
-                    <div>
+                        <br></br>
+                        <br></br>
+
                         {this.state.profile.public_repos}
-                    </div>
-                    <div>
+                        <br></br>
+                        <br></br>
+
                         {this.state.profile.url}
                     </div>
                     
-                </div>
+                </article>
 
             </div>
         )
