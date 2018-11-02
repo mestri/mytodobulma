@@ -115,14 +115,14 @@ closeProfile(){
   render() {
     const todos = this.state.todos.map((todo, i) => {
       return(
-        <div className="col-md-4">         
-          <div className="card mt-4">
+        <div className="columns">         
+          <div className="column">
             <div className="card-header">
             <div className="card-header-icon">
                 <button type="button" 
                   className="button "
                   onClick={this.completeTodo.bind(this, i)}>
-                  <i className="fa fa-check-circle text-secondary"></i>                   
+                  <i className="fa fa-check"></i>                   
                 </button>             
               </div> 
 
@@ -130,7 +130,7 @@ closeProfile(){
               <div className="card-header-icon">
                 <button 
                   type="button" 
-                  className="close" 
+                  className="button" 
                   onClick={this.removeTodo.bind(this, i)}>
                   <i className="fa fa-times"></i>                   
                 </button>
