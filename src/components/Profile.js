@@ -25,7 +25,7 @@ class Profile extends Component{
         return(
 
             <div className="column is-half">
-                <article className="message is-black">
+                <article className="message is-success">
                     <div className="message-header">
                         <p>
                             <button type="button" className="delete" onClick={this.props.profileHandler}>

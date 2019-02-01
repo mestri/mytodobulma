@@ -45,11 +45,14 @@ class App extends Component {
         todoEl
       ]
     })
+    console.log("esta")
+    console.log(todos)
   }
     /*console.log(todos);*/
 
 
   openModal(){
+    
      this.setState({
        modalVisibility: 'visible',
        modalDisplay: 'block'
@@ -117,39 +120,43 @@ closeProfile(){
       return(
         <div className="columns">         
           <div className="column">
-            <div className="card-header">
-            <div className="card-header-icon">
-                <button type="button" 
-                  className="button "
-                  onClick={this.completeTodo.bind(this, i)}>
-                  <i className="fa fa-check"></i>                   
-                </button>             
-              </div> 
+            <div class="is-divider" data-content={i+1}></div>
 
-              <h5 className="card-header-title">{todo.title}</h5>
+            <div className="card">
+              <div className="card-header">
               <div className="card-header-icon">
-                <button 
-                  type="button" 
-                  className="button" 
-                  onClick={this.removeTodo.bind(this, i)}>
-                  <i className="fa fa-times"></i>                   
-                </button>
-              </div>
+                  <button type="button" 
+                    className="button "
+                    onClick={this.completeTodo.bind(this, i)}>
+                    <i className="fa fa-check"></i>                   
+                  </button>             
+                </div> 
 
-            </div>
-            <div className="card-content">
-              <p className="content">{todo.description}</p>
-            </div>
-            <div className="card-footer">
-              <p className="content">
-                <span className="float-left text-secondary">
-                  {todo.responsible}
-                </span>
-                <span className="float-right text-success font-italic">
-                  {todo.priority}
-                </span>
-              </p>
-              
+                <h5 className="card-header-title">{todo.title}</h5>
+                <div className="card-header-icon">
+                  <button 
+                    type="button" 
+                    className="button" 
+                    onClick={this.removeTodo.bind(this, i)}>
+                    <i className="fa fa-times"></i>                   
+                  </button>
+                </div>
+
+              </div>
+              <div className="card-content">
+                <p className="content">{todo.description}</p>
+              </div>
+              <div className="card-footer">
+                <p className="content">
+                  <span className="float-left text-secondary">
+                    {todo.responsible}
+                  </span>
+                  <span className="float-right text-success font-italic">
+                    {todo.priority}
+                  </span>
+                </p>
+                
+              </div>
             </div>
           </div>
         </div>

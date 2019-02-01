@@ -26,71 +26,119 @@ class TodoForm extends Component{
     handleSubmit(e){
         /*el metodo preventDefault evita que se refresque el navegador al presionar el boton del formulario*/
         e.preventDefault();
-        console.log(this.state);
+        //console.log(this.state);
         /*recibe los datos del formulario */
         this.props.onAddTodo(this.state);
         this.setState(this.default);
     }
     render(){
         return(
-            <div className="card border border-success">
-                <form className="card-body" onSubmit={this.handleSubmit}>
-                    <div className="float-right">
+            <div className="modal is-active" id="myModal">
+                <div className="modal-background"></div>
+                <div className="modal-card">
+                    <header className="modal-card-head">
+                        <h5 className="modal-card-title">Add new Task</h5>
+                    <div className="delete">
                         <p>
-                            <button type="button" className="btn btn-light" onClick={this.props.mmodalHandler}>
-                                <i className="fa fa-close"></i>
+                            <button type="button" className="delete" onClick={this.props.mmodalHandler}>
+                                <i className="fa fa-times"></i>
                             </button>
                         </p>
                     </div>
-
-                    <div className="form-group">
-                        <input
-                            type="text"
-                            value={this.state.title}
-                            name="title"
-                            onChange={this.handleInput}
-                            className="form-control"
-                            placeholder="Title Task"
-                        />
-                    </div>
-                    <div className="form-group">
-                        <input
-                            type="text"
-                            value={this.state.description}
-                            name="description"
-                            className="form-control"
-                            placeholder="Description"
-                            onChange={this.handleInput}
-                        />
-                    </div>
-                    <div className="form-group">
-                        <input
-                            type="text"
-                            value={this.state.responsible}
-                            name="responsible"
-                            className="form-control"
-                            placeholder="Responsible"
-                            onChange={this.handleInput}
-                        />
-                    </div>   
-                    <div className="form-group">
+                    </header>
+                    <form className="modal-card-body" onSubmit={this.handleSubmit}>
                         
-                        <select
-                            name="priority"
-                            value={this.state.priority}
-                            className="form-control"
-                            onChange={this.handleInput}
-                        >
-                            <option>Low</option>
-                            <option>Medium</option>
-                            <option>High</option>
-                        </select>
-                    </div>
-                    <button className="btn btn-secondary" type="submit">
-                        Add Task
-                    </button>
-                </form>
-
+                        <div className="columns">
+                            <div className="column">
+                                <div className="form-group">
+                                    <input
+                                        type="text"
+                                        value={this.state.title}
+                                        name="title"
+                                        onChange={this.handleInput}
+                                        className="input"
+                                        placeholder="Title Task"
+                                    />
+                                </div>
+                                <br></br>
+                                <div className="form-group">
+                                    <input
+                                        type="text"
+                                        value={this.state.description}
+                                        name="description"
+                                        className="input"
+                                        placeholder="Description"
+                                        onChange={this.handleInput}
+                                    />
+                                </div>
+                            </div>
+                            <div className="column">
+                                <div className="form-group">
+                                    <input
+                                        type="text"
+                                        value={this.state.responsible}
+                                        name="responsible"
+                                        className="input"
+                                        placeholder="Responsible"
+                                        onChange={this.handleInput}
+                                    />
+                                </div>
+                                <br></br>
+                                <input
+                                    type="date"
+                                    name="dueDate"
+                                    className="input"
+                                    onChange={this.handleInput}
+                                />
+                            </div>
+                        </div>   
+                        <div className="form-group">
+                            <div className="field is-horizontal">
+                                <div className="field-label">
+                                    <label className="label">Priority</label>
+                                </div>
+                                <div className="field-body">
+                                    <div className="field is-narrow">
+                                        <div className="control">
+                                            <label className="radio">
+                                                <input
+                                                    type="radio"
+                                                    name="priority"
+                                                    value="Low"
+                                                    onChange={this.handleInput}
+                                                    checked
+                                                /> Low
+                                            </label>
+                                            <label className="radio">
+                                                <input                                                
+                                                    type="radio"
+                                                    name="priority"
+                                                    value="Medium"
+                                                    onChange={this.handleInput}
+                                                /> Medium
+                                            </label>
+                                            <label className="radio">
+                                                <input
+                                                    type="radio"
+                                                    name="priority"
+                                                    value="High"
+                                                    onChange={this.handleInput}
+                                                /> High
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br></br>
+                        <footer className="modal-card-foot">
+                            <button className="button is-dark" type="submit">
+                                Add Task
+                            </button>
+                        </footer>
+   
+                    </form>
+                </div>
             </div>
         )
     }
